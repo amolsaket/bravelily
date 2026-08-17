@@ -1,0 +1,117 @@
+{
+  "project_name": "Feeding Trends",
+  "theme_strategy": "Light and airy (Off-white/cream base)",
+  "emotional_archetype": "Neo-Editorial Feminine (Archetype 3: Pastel & Soft meets Editorial)",
+  "typography": {
+    "primary_heading": {
+      "family": "Cormorant Garamond",
+      "import_url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,600&display=swap",
+      "description": "Characterful, elegant display serif. Use italics strategically for conversational emphasis."
+    },
+    "secondary_body": {
+      "family": "Manrope",
+      "import_url": "https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600&display=swap",
+      "description": "Clean, highly readable geometric sans for technical details and body text."
+    },
+    "hierarchy_rules": {
+      "h1": "text-5xl md:text-6xl lg:text-7xl tracking-tighter leading-[0.9]",
+      "h2": "text-4xl md:text-5xl lg:text-6xl tracking-tight leading-none",
+      "h3": "text-2xl md:text-3xl leading-snug",
+      "body": "text-base md:text-lg leading-relaxed text-[#4A4242]",
+      "chapter_numbers": "text-7xl md:text-9xl font-light text-[#F4E1E1]/40 select-none absolute"
+    }
+  },
+  "colors": {
+    "background": {
+      "base": "#FDFBF7",
+      "alt": "#FCF9F2",
+      "description": "Warm, off-white/cream base. Never pure white."
+    },
+    "accent": {
+      "primary": "#F7D6D9",
+      "hover": "#EBBABF",
+      "subtle": "#FDF3F4",
+      "description": "Soft blush pink. Used for highlights, buttons, and geometric shapes."
+    },
+    "text": {
+      "primary": "#2D2424",
+      "secondary": "#5C5252",
+      "tertiary": "#8A7E7E",
+      "description": "Deep espresso/charcoal for text. No pure black."
+    },
+    "surface": {
+      "card_marketing": "#FFFFFF",
+      "card_data": "#F9F4F5",
+      "border": "#E8DFDF"
+    }
+  },
+  "visual_enhancers": {
+    "shapes": "Use inline SVGs for abstract continuous-line art and soft geometric blobs (circles, arches). Tint them with the blush accent.",
+    "borders": "Delicate 1px solid borders (#E8DFDF) to separate sections, creating an editorial grid structure.",
+    "surfaces": "Zero drop shadows. Rely entirely on 1px borders and slight background color shifts (cream to white to blush) for depth.",
+    "textures": "Include a highly subtle fixed SVG noise overlay (opacity-20) across the entire page to break digital flatness."
+  },
+  "motion": {
+    "libraries": ["framer-motion", "@studio-freight/react-lenis", "react-fast-marquee"],
+    "hero_kinetic_text": "Use framer-motion to mask and reveal headlines line-by-line (initial y: 100%, animate to y: 0, overflow-hidden on parent wrapper).",
+    "scroll_reveal": "Sections fade in and translate up (y: 40) on whileInView with viewport={{ once: true, margin: '-100px' }}.",
+    "parallax": "Subtle y-axis transform tied to scroll position for abstract SVG shapes in the background.",
+    "marquee": "Use react-fast-marquee for the clients section. Slow speed (speed={30}), pauseOnHover={true}, large gaps."
+  },
+  "layouts": {
+    "global": "Generous spacing. Use py-24 md:py-32 for standard sections. Max-w-7xl containers.",
+    "header": "Sticky glassmorphism nav (backdrop-blur-md bg-[#FDFBF7]/80 border-b border-[#E8DFDF]). Contains Logo (text), Links, 'Book Consult' button.",
+    "hero": {
+      "structure": "Min-h-[90vh] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-20 relative",
+      "content": "Col-span-1 lg:col-span-8 z-10. Massive bold conversational H1 (e.g., 'Brand, marketing & data consulting for the fashion forward.'). Primary CTA (Blush pill button) + Secondary CTA (Text link with arrow).",
+      "visuals": "Col-span-1 lg:col-span-4 relative. Floating abstract SVG line-art and soft blush blurred circles."
+    },
+    "about": {
+      "structure": "py-32 relative border-t border-[#E8DFDF] grid grid-cols-1 lg:grid-cols-12 gap-16",
+      "content": "Large chapter number '01' absolute top-10 left-0. Lg:col-start-3 lg:col-span-8. First-person conversational copy, large text-2xl font-serif leading-relaxed."
+    },
+    "services": {
+      "structure": "py-32 border-t border-[#E8DFDF]",
+      "marketing_group": "Editorial list style. Flex rows with bottom border, group hover reveals blush background and arrow.",
+      "data_group": "Distinct from marketing. Architectural/Bento cards. Soft blush background cards, crisp typography, demystifying ML terminology."
+    },
+    "clients": {
+      "structure": "py-24 bg-white border-y border-[#E8DFDF] overflow-hidden",
+      "in_house": "Slow marquee of brand names in sleek typography (Cormorant Garamond italic).",
+      "consulting": "Static, highly spaced asymmetric grid of typographic logos or brand names."
+    },
+    "contact": {
+      "structure": "py-32 grid grid-cols-1 lg:grid-cols-2 gap-16 bg-[#FDF3F4]",
+      "form": "Shadcn based. Custom styled: completely flat, 1px espresso borders, transparent inputs, no outline, bottom-border-only inputs (material style) or soft rounded rectangles. Service dropdown must be cleanly styled.",
+      "messaging": "Warm, conversational confirmation state on submit."
+    }
+  },
+  "components_and_tech": {
+    "required_libraries": [
+      "framer-motion",
+      "lucide-react",
+      "@studio-freight/react-lenis",
+      "react-fast-marquee",
+      "clsx",
+      "tailwind-merge"
+    ],
+    "shadcn_customization": "Strip all default shadows. Use rounded-full for buttons. Form inputs must use bg-transparent and focus:ring-1 focus:ring-[#2D2424]. Dropdown must NOT have a transparent background; use solid white with 1px border."
+  },
+  "media": {
+    "images_rule": "STRICTLY NO STOCK PHOTOS. Use pure CSS shapes (e.g., width, height, border-radius, background) or inline SVGs for line-art illustrations and abstract blobs.",
+    "icons": "Use lucide-react with strokeWidth={1} to maintain a delicate, line-art aesthetic."
+  },
+  "UNIVERSAL_GUIDELINES_FOR_MAIN_AGENT": [
+    "NEVER use generic placeholder images or stock photography. Use abstract CSS geometric shapes (circles, lines, arches) colored in off-white and blush.",
+    "Implement smooth scrolling using Lenis at the app root level.",
+    "Maintain strict typography scaling. Do not exceed text-7xl for headers.",
+    "Avoid the generic 'AI tech' look (no dark mode, no glowing gradients, no heavy shadows).",
+    "Use data-testid on all interactive elements (buttons, form inputs, select triggers).",
+    "Inputs and Dropdowns MUST have solid backgrounds (no transparent popovers).",
+    "Do NOT apply 'transition: all' globally. Use targeted transitions.",
+    "Form must include: Name, Email, Phone, Company, Service (Dropdown), Message.",
+    "Use <form> tags and proper accessible labels.",
+    "Do NOT use HTML <select>; use Shadcn Select.",
+    "All components should exist in a unified visual language defined by 1px borders, off-white/blush colors, and elegant serif typography."
+  ]
+}

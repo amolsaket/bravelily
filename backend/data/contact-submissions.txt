@@ -1,0 +1,18 @@
+----------------------------------------
+Timestamp: 2026-08-17T09:19:51Z
+Name: Jane Doe
+Email: jane@example.com
+Phone: +91-9876543210
+Company: ABC Fashion Co.
+Service Interested: Brand Marketing
+Message: Hi, I would like to discuss a rebrand.
+----------------------------------------
+----------------------------------------
+Timestamp: 2026-08-17T09:20:15Z
+Name: Jane Doe
+Email: jane@example.com
+Phone: -
+Company: -
+Service Interested: Not sure yet
+Message: Hi, I would like to discuss a rebrand for my saree label.
+----------------------------------------
