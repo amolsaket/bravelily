@@ -1,6 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
-import { Mail, MapPin, Instagram, Linkedin, Loader2, PartyPopper, ArrowRight } from "lucide-react";
+import { Mail, MapPin, Linkedin, Loader2, PartyPopper, ArrowRight } from "lucide-react";
+import { CurlyArrow } from "@/components/Doodles";
 import { Reveal, GhostNumber } from "@/components/Reveal";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -72,31 +73,33 @@ export default function Contact() {
           </Reveal>
           <Reveal delay={0.15}>
             <div className="mt-10 flex flex-col gap-5 text-sm text-inkSoft">
-              <span className="flex items-center gap-3">
+              <a
+                data-testid="contact-email-link"
+                href="mailto:imshreyasrivastava@gmail.com"
+                className="flex items-center gap-3 transition-colors hover:text-ink"
+              >
                 <Mail size={16} strokeWidth={1} className="text-blushHover" />
-                hello@feedingtrends.in
-              </span>
+                imshreyasrivastava@gmail.com
+              </a>
               <span className="flex items-center gap-3">
                 <MapPin size={16} strokeWidth={1} className="text-blushHover" />
                 Bengaluru, India
               </span>
               <span className="mt-2 flex items-center gap-4">
                 <a
-                  data-testid="contact-instagram-link"
-                  href="#"
-                  aria-label="Instagram"
-                  className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white transition-colors hover:border-blushHover"
-                >
-                  <Instagram size={16} strokeWidth={1} />
-                </a>
-                <a
                   data-testid="contact-linkedin-link"
-                  href="#"
+                  href="https://www.linkedin.com/in/shreyasrivastava16/"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   aria-label="LinkedIn"
                   className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white transition-colors hover:border-blushHover"
                 >
                   <Linkedin size={16} strokeWidth={1} />
                 </a>
+              </span>
+              <span className="mt-6 hidden items-center gap-3 lg:flex" aria-hidden>
+                <span className="font-display text-lg italic text-inkFaint">this lands straight in my inbox</span>
+                <CurlyArrow className="h-12 w-20 text-blushHover" />
               </span>
             </div>
           </Reveal>

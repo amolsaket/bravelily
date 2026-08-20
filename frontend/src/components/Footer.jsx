@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Mail } from "lucide-react";
+import { Linkedin, Mail } from "lucide-react";
 import { scrollToId } from "@/lib/lenis";
 
 export default function Footer() {
@@ -6,22 +6,19 @@ export default function Footer() {
     <footer data-testid="footer" className="border-t border-line bg-cream py-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="font-display text-4xl font-semibold italic tracking-tight md:text-5xl">Feeding Trends</p>
+          <p className="font-display text-4xl font-semibold italic tracking-tight md:text-5xl">BravelilyStudios</p>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-inkSoft">
             Brand, marketing &amp; data consulting for fashion and lifestyle brands. Bengaluru, India.
           </p>
+          <p className="mt-2 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
+            A Feeding Trends product
+          </p>
           <div className="mt-6 flex items-center gap-4">
             <a
-              data-testid="footer-instagram-link"
-              href="#"
-              aria-label="Instagram"
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white transition-colors hover:border-blushHover"
-            >
-              <Instagram size={16} strokeWidth={1} />
-            </a>
-            <a
               data-testid="footer-linkedin-link"
-              href="#"
+              href="https://www.linkedin.com/in/shreyasrivastava16/"
+              target="_blank"
+              rel="noopener noreferrer"
               aria-label="LinkedIn"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white transition-colors hover:border-blushHover"
             >
@@ -29,7 +26,7 @@ export default function Footer() {
             </a>
             <a
               data-testid="footer-email-link"
-              href="mailto:hello@feedingtrends.in"
+              href="mailto:imshreyasrivastava@gmail.com"
               aria-label="Email"
               className="flex h-10 w-10 items-center justify-center rounded-full border border-line bg-white transition-colors hover:border-blushHover"
             >
@@ -56,7 +53,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-2 border-t border-line px-6 pt-6 text-xs text-inkFaint md:flex-row md:justify-between">
-        <span>© 2026 Feeding Trends. All rights reserved.</span>
+        <span>© 2026 BravelilyStudios · A Feeding Trends product. All rights reserved.</span>
         <span className="font-display italic">Made with taste, in Bengaluru.</span>
       </div>
     </footer>

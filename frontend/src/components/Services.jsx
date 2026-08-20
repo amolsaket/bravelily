@@ -1,4 +1,5 @@
 import { ArrowUpRight, TrendingUp, Compass, Users, Layers } from "lucide-react";
+import { Sparkle } from "@/components/Doodles";
 import { Reveal, SectionHead, GhostNumber } from "@/components/Reveal";
 
 const MARKETING = [
@@ -59,8 +60,9 @@ export default function Services() {
 
         <div className="mt-24 md:mt-32">
           <Reveal>
-            <p className="mb-2 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
+            <p className="mb-2 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
               02 · Data &amp; ML — in plain English
+              <Sparkle className="h-4 w-4 text-blushHover" />
             </p>
             <p className="mb-10 max-w-xl text-base text-inkSoft md:text-lg" data-testid="data-services-intro">
               No jargon, no black boxes. Just models that tell you who to nudge, with what, and when.

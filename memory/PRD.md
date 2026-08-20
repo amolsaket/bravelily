@@ -17,11 +17,10 @@ Build a modern, responsive single-page marketing website for Feeding Trends, a f
 
 ## Implemented
 - 2026-07: Full single-page site — kinetic masked-reveal hero with parallax shapes, editorial ticker marquee, founder chapter (01), services chapter (02) with editorial list + Data & ML bento cards, clients chapter (03) with in-house marquee + consulting card grid, contact chapter (04) with working form + success/error states, footer. Backend /api/contact with S3 append logic + local fallback. Verified end-to-end (curl + browser flow).
+- 2026-07: Rebranded to BravelilyStudios ("A Feeding Trends product"), added founder portrait photo with hand-drawn arch frame + hand-drawn doodle accents across sections, rephrased About paragraph 2 (diverse background = client edge), wired real LinkedIn + Gmail contact, removed Instagram.
 
 ## Backlog
 - P0: User to provide AWS credentials/bucket name → fill backend/.env and restart backend to activate S3 storage.
-- P1: Real Instagram/LinkedIn URLs and final contact email (currently placeholders).
-- P1: Founder portrait/brand illustrations when real assets exist.
 - P2: Case studies / testimonials section.
 - P2: SEO meta tags + OG image.
 

@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowDown } from "lucide-react";
+import { Sparkle, CurlyArrow } from "@/components/Doodles";
 import { scrollToId } from "@/lib/lenis";
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -58,9 +59,10 @@ export default function Hero() {
           data-testid="hero-eyebrow"
         >
           <span className="h-2 w-2 rounded-full bg-blushHover" />
-          Feeding Trends · Bengaluru
+          BravelilyStudios · Bengaluru
         </motion.p>
 
+        <Sparkle className="absolute right-4 top-14 h-6 w-6 text-blushHover md:right-20" />
         <h1
           data-testid="hero-headline"
           className="font-display text-5xl font-medium leading-[0.98] tracking-tight md:text-7xl"
@@ -108,6 +110,10 @@ export default function Hero() {
             See what I do
             <ArrowDown size={16} strokeWidth={1.5} className="transition-transform group-hover:translate-y-0.5" />
           </button>
+          <span className="hidden items-center gap-2 md:flex" aria-hidden>
+            <CurlyArrow className="h-9 w-14 -scale-x-100 text-blushHover" />
+            <span className="font-display text-lg italic text-inkFaint">go on, say hi</span>
+          </span>
         </motion.div>
       </div>
 

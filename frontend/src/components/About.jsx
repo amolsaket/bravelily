@@ -1,4 +1,5 @@
 import { Reveal, GhostNumber } from "@/components/Reveal";
+import { Sparkle } from "@/components/Doodles";
 
 const CHIPS = ["6+ years in-house", "Fashion Design × Sociology", "Bengaluru, India"];
 
@@ -10,6 +11,21 @@ export default function About() {
         <div className="lg:col-span-3">
           <Reveal>
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">The founder</p>
+            <div className="relative mt-10 max-w-[240px]" data-testid="founder-portrait">
+              <div aria-hidden className="absolute -inset-4 rounded-b-3xl rounded-t-full bg-blush opacity-60" />
+              <div className="relative overflow-hidden rounded-b-3xl rounded-t-full border border-line bg-white p-2">
+                <img
+                  src="/images/shreya.png"
+                  alt="Shreya Srivastava, founder of BravelilyStudios"
+                  className="aspect-[4/5] w-full rounded-b-2xl rounded-t-full object-cover object-top"
+                />
+              </div>
+              <Sparkle className="absolute -right-6 top-8 h-6 w-6 text-blushHover" />
+              <Sparkle className="absolute -left-5 bottom-20 h-4 w-4 text-blushHover" />
+              <p className="relative mt-4 font-display text-lg italic text-inkSoft">
+                Shreya Srivastava — founder
+              </p>
+            </div>
           </Reveal>
         </div>
         <div className="lg:col-span-8 lg:col-start-4">
@@ -22,9 +38,9 @@ export default function About() {
           </Reveal>
           <Reveal delay={0.15}>
             <p className="mt-8 font-display text-2xl leading-relaxed text-inkSoft md:text-3xl" data-testid="about-para-2">
-              My background is a bit of a cocktail — a Fashion Design &amp; Garment Technology diploma,
-              a Sociology degree, and years of hands-on brand marketing. Design sense, consumer psychology,
-              and performance-marketing rigor, all in one brain.
+              A Fashion Design &amp; Garment Technology diploma, a Sociology degree, and years of
+              hands-on brand marketing — that diverse mix is the edge I bring to every client.
+              Design sense, consumer psychology, and performance-marketing rigor, all pointed at your brand.
             </p>
           </Reveal>
           <Reveal delay={0.25}>
