@@ -25,3 +25,12 @@ Company: -
 Service Interested: Uplift Modelling
 Message: Verifying form after S3 path config.
 ----------------------------------------
+----------------------------------------
+Timestamp: 2026-08-20T06:02:21Z
+Name: Role Test
+Email: role@example.com
+Phone: -
+Company: -
+Service Interested: Demand Forecasting (Time Series)
+Message: Verifying default credential chain flow.
+----------------------------------------

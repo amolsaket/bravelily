@@ -24,12 +24,9 @@ LOCAL_FALLBACK = ROOT_DIR / "data" / "contact-submissions.txt"
 
 
 def s3_configured() -> bool:
-    return all([
-        os.environ.get("AWS_ACCESS_KEY_ID", "").strip(),
-        os.environ.get("AWS_SECRET_ACCESS_KEY", "").strip(),
-        AWS_REGION,
-        S3_BUCKET,
-    ])
+    # Only bucket + region are required. Credentials come from boto3's default
+    # chain: static env keys if set, otherwise the IAM instance role on EC2.
+    return bool(AWS_REGION and S3_BUCKET)
 
 
 class ContactSubmission(BaseModel):
@@ -61,12 +58,13 @@ def format_block(sub: ContactSubmission) -> str:
 def append_to_s3(block: str) -> None:
     import boto3
     from botocore.exceptions import ClientError
-    s3 = boto3.client(
-        "s3",
-        region_name=AWS_REGION,
-        aws_access_key_id=os.environ["AWS_ACCESS_KEY_ID"].strip(),
-        aws_secret_access_key=os.environ["AWS_SECRET_ACCESS_KEY"].strip(),
-    )
+    client_kwargs = {"region_name": AWS_REGION}
+    access_key = os.environ.get("AWS_ACCESS_KEY_ID", "").strip()
+    secret_key = os.environ.get("AWS_SECRET_ACCESS_KEY", "").strip()
+    if access_key and secret_key:
+        client_kwargs["aws_access_key_id"] = access_key
+        client_kwargs["aws_secret_access_key"] = secret_key
+    s3 = boto3.client("s3", **client_kwargs)
     existing = ""
     try:
         existing = s3.get_object(Bucket=S3_BUCKET, Key=S3_KEY)["Body"].read().decode("utf-8")
@@ -98,18 +96,17 @@ async def root():
 def submit_contact(sub: ContactSubmission):
     block = format_block(sub)
     storage = "local"
-    try:
-        if s3_configured():
+    if s3_configured():
+        try:
             append_to_s3(block)
             storage = "s3"
-        else:
-            logger.warning("AWS env vars not configured; storing submission in local fallback file")
+        except Exception:
+            logger.exception("S3 write failed; storing submission in local fallback file")
             append_to_local(block)
-    except HTTPException:
-        raise
-    except Exception:
-        logger.exception("Failed to store contact submission")
-        raise HTTPException(status_code=500, detail="Could not save your message right now. Please try again.")
+            storage = "local-fallback"
+    else:
+        logger.warning("S3 bucket/region not configured; storing submission in local fallback file")
+        append_to_local(block)
     return {"ok": True, "message": "Got it — I'll get back to you within 1–2 days!", "storage": storage}
 
 
