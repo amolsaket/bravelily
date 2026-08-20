@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 import { Mail, MapPin, Linkedin, Loader2, PartyPopper, ArrowRight } from "lucide-react";
-import { CurlyArrow } from "@/components/Doodles";
+import { CurlyArrow, Lily } from "@/components/Doodles";
 import { Reveal, GhostNumber } from "@/components/Reveal";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -64,7 +64,10 @@ export default function Contact() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 gap-16 px-6 lg:grid-cols-2">
         <div>
           <Reveal>
-            <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">Say hello</p>
+            <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
+              Say hello
+              <Lily className="h-5 w-3 text-blushHover" />
+            </p>
             <h2 className="font-display text-4xl font-medium leading-none tracking-tight md:text-6xl" data-testid="contact-heading">
               Tell me about <span className="italic">your brand</span>.
             </h2>

@@ -1,5 +1,6 @@
 import Marquee from "react-fast-marquee";
 import { Asterisk } from "lucide-react";
+import { Lily } from "@/components/Doodles";
 import { Reveal, GhostNumber } from "@/components/Reveal";
 
 const IN_HOUSE = [
@@ -19,8 +20,9 @@ export default function Clients() {
 
       <div className="border-b border-line bg-white py-16 md:py-20">
         <Reveal className="mx-auto mb-10 max-w-7xl px-6">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
+          <p className="flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
             Brand experience — teams I&apos;ve worked inside
+            <Lily className="h-5 w-3 text-blushHover" />
           </p>
         </Reveal>
         <Marquee speed={30} pauseOnHover gradient={false} data-testid="inhouse-marquee">
@@ -53,7 +55,7 @@ export default function Clients() {
                   data-testid={`consulting-client-${i}`}
                   className="flex h-full flex-col justify-between rounded-3xl border border-line bg-white p-8 transition-colors hover:border-blushHover"
                 >
-                  <span className="mb-8 h-2 w-2 rounded-full bg-blushHover" />
+                  <Lily className="mb-8 h-10 w-6 text-blushHover" />
                   <div>
                     <h3 className="font-display text-2xl font-medium leading-tight md:text-3xl">{name}</h3>
                     <p className="mt-3 text-xs font-semibold uppercase tracking-widest text-inkFaint">

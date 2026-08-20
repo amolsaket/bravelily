@@ -1,5 +1,5 @@
 import { ArrowUpRight, TrendingUp, Compass, Users, Layers, Target, LineChart } from "lucide-react";
-import { Sparkle } from "@/components/Doodles";
+import { Sparkle, Lily } from "@/components/Doodles";
 import { Reveal, SectionHead, GhostNumber } from "@/components/Reveal";
 
 const MARKETING = [
@@ -32,8 +32,9 @@ export default function Services() {
         />
 
         <Reveal>
-          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
+          <p className="mb-4 flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.25em] text-inkFaint">
             01 · Marketing &amp; Brand
+            <Lily className="h-5 w-3 text-blushHover" />
           </p>
         </Reveal>
         <div data-testid="marketing-services-list">

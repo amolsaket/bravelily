@@ -1,5 +1,5 @@
 import { Reveal, GhostNumber } from "@/components/Reveal";
-import { Sparkle } from "@/components/Doodles";
+import { Sparkle, Lily } from "@/components/Doodles";
 
 const CHIPS = ["6+ years in-house", "Fashion Design × Sociology", "Bengaluru, India"];
 
@@ -44,7 +44,7 @@ export default function About() {
             </p>
           </Reveal>
           <Reveal delay={0.25}>
-            <div className="mt-12 flex flex-wrap gap-3">
+            <div className="mt-12 flex flex-wrap items-center gap-3">
               {CHIPS.map((chip) => (
                 <span
                   key={chip}
@@ -53,6 +53,7 @@ export default function About() {
                   {chip}
                 </span>
               ))}
+              <Lily className="ml-2 h-10 w-6 text-blushHover" />
             </div>
           </Reveal>
         </div>
