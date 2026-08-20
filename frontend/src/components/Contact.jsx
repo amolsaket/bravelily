@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-const API = `${process.env.REACT_APP_BACKEND_URL}/api`;
+const API = `${process.env.REACT_APP_BACKEND_URL || window.location.origin}/api`;
 
 const SERVICES = [
   "Brand Marketing",
@@ -53,7 +53,15 @@ export default function Contact() {
       setStatus("success");
     } catch (err) {
       const detail = err.response?.data?.detail;
-      setErrorMsg(typeof detail === "string" ? detail : "Something went wrong on our side.");
+      let msg;
+      if (typeof detail === "string") {
+        msg = detail;
+      } else if (err.response) {
+        msg = `The server returned an error (${err.response.status}).`;
+      } else {
+        msg = "Can't reach the server right now — the backend may be down or unreachable.";
+      }
+      setErrorMsg(msg);
       setStatus("error");
     }
   };
