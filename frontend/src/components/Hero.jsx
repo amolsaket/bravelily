@@ -57,7 +57,7 @@ export default function Hero() {
           data-testid="hero-eyebrow"
         >
           <span className="h-2 w-2 rounded-full bg-blushHover" />
-          BravelilyStudios · Bengaluru
+          Bravelily Studios · Bengaluru
         </motion.p>
 
         <Sparkle className="absolute right-4 top-14 h-6 w-6 text-blushHover md:right-20" />

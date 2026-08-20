@@ -24,7 +24,7 @@ export default function Nav() {
           onClick={() => go("#top")}
           className="font-display text-2xl font-semibold italic tracking-tight"
         >
-          BravelilyStudios
+          Bravelily Studios
         </button>
         <div className="hidden items-center gap-8 md:flex">
           {LINKS.map((l) => (

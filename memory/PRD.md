@@ -17,7 +17,7 @@ Build a modern, responsive single-page marketing website for Feeding Trends, a f
 
 ## Implemented
 - 2026-07: Full single-page site — kinetic masked-reveal hero with parallax shapes, editorial ticker marquee, founder chapter (01), services chapter (02) with editorial list + Data & ML bento cards, clients chapter (03) with in-house marquee + consulting card grid, contact chapter (04) with working form + success/error states, footer. Backend /api/contact with S3 append logic + local fallback. Verified end-to-end (curl + browser flow).
-- 2026-07: Rebranded to BravelilyStudios ("A Feeding Trends product"), added founder portrait photo with hand-drawn arch frame + hand-drawn doodle accents across sections, rephrased About paragraph 2 (diverse background = client edge), wired real LinkedIn + Gmail contact, removed Instagram.
+- 2026-07: Rebranded to Bravelily Studios ("A Feeding Trends product"), added founder portrait photo with hand-drawn arch frame + hand-drawn doodle accents across sections, rephrased About paragraph 2 (diverse background = client edge), wired real LinkedIn + Gmail contact, removed Instagram.
 - 2026-07: Added hand-drawn lily line-illustration motif (parallax lily in hero, lily beside footer wordmark), added Uplift Modelling and Demand Forecasting (Time Series) to Data & ML services and the contact form dropdown (now 12 services).
 - 2026-07: Threaded small lily doodles through all section dividers (About chips row, Marketing & Brand label, both Clients labels, Say hello eyebrow) and replaced the dots on consulting client cards with mini lilies.
 

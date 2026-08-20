@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <span className="flex items-end gap-4">
             <Lily className="h-16 w-10 shrink-0 text-blushHover" />
-            <p className="font-display text-4xl font-semibold italic tracking-tight md:text-5xl">BravelilyStudios</p>
+            <p className="font-display text-4xl font-semibold italic tracking-tight md:text-5xl">Bravelily Studios</p>
           </span>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-inkSoft">
             Brand, marketing &amp; data consulting for fashion and lifestyle brands. Bengaluru, India.
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="mx-auto mt-12 flex max-w-7xl flex-col gap-2 border-t border-line px-6 pt-6 text-xs text-inkFaint md:flex-row md:justify-between">
-        <span>© 2026 BravelilyStudios · A Feeding Trends product. All rights reserved.</span>
+        <span>© 2026 Bravelily Studios · A Feeding Trends product. All rights reserved.</span>
         <span className="font-display italic">Made with taste, in Bengaluru.</span>
       </div>
     </footer>

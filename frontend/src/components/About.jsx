@@ -16,7 +16,7 @@ export default function About() {
               <div className="relative overflow-hidden rounded-b-3xl rounded-t-full border border-line bg-white p-2">
                 <img
                   src="/images/shreya.png"
-                  alt="Shreya Srivastava, founder of BravelilyStudios"
+                  alt="Shreya Srivastava, founder of Bravelily Studios"
                   className="aspect-[4/5] w-full rounded-b-2xl rounded-t-full object-cover object-top"
                 />
               </div>
