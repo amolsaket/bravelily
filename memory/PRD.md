@@ -22,7 +22,7 @@ Build a modern, responsive single-page marketing website for Feeding Trends, a f
 - 2026-07: Threaded small lily doodles through all section dividers (About chips row, Marketing & Brand label, both Clients labels, Say hello eyebrow) and replaced the dots on consulting client cards with mini lilies.
 
 ## Backlog
-- P0 (done, pending EC2 deploy): S3 fully wired — bucket bravelily-studios-inquiries, key inquiries/contact-submissions.txt, region ap-south-1. Backend uses boto3's default credential chain: static env keys if ever set, otherwise the EC2 IAM instance role (no keys needed). If an S3 write fails, the submission falls back to the local file and the API response says storage:"local-fallback" (storage:"s3" confirms the bucket write worked). EC2 role needs s3:GetObject + s3:PutObject on arn:aws:s3:::bravelily-studios-inquiries/inquiries/*.
+- P0 (LIVE since 2026-07): S3 storage is active. Enquiries append to s3://bravelily-studios-inquiries/inquiries/contact-submissions.txt (ap-south-1) as timestamped text blocks. Static keys are set in backend/.env (used when present); on EC2 the boto3 default chain will use the instance IAM role instead. If an S3 write ever fails, submissions fall back to the local file and the API response says storage:"local-fallback". Verified live with a real submission read back from the bucket.
 - P2: Case studies / testimonials section.
 - P2: SEO meta tags + OG image.
 
