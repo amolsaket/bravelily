@@ -100,6 +100,7 @@ async def root():
 
 
 @api_router.post("/contact")
+@app.post("/contact")
 def submit_contact(sub: ContactSubmission):
     block = format_block(sub)
     slug = slugify_name(sub.name)
