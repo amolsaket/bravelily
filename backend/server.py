@@ -6,6 +6,7 @@ from pydantic import BaseModel, EmailStr, Field
 from typing import Optional
 from datetime import datetime, timezone
 import os
+import re
 import logging
 
 ROOT_DIR = Path(__file__).parent
@@ -19,8 +20,9 @@ api_router = APIRouter(prefix="/api")
 
 AWS_REGION = os.environ.get("AWS_REGION", "").strip()
 S3_BUCKET = os.environ.get("S3_BUCKET_NAME", "").strip()
-S3_KEY = os.environ.get("S3_OBJECT_KEY", "").strip() or "contact-submissions.txt"
-LOCAL_FALLBACK = ROOT_DIR / "data" / "contact-submissions.txt"
+_raw_prefix = os.environ.get("S3_PREFIX", "").strip() or "inquiries/"
+S3_PREFIX = _raw_prefix if _raw_prefix.endswith("/") else _raw_prefix + "/"
+LOCAL_DIR = ROOT_DIR / "data"
 
 
 def s3_configured() -> bool:
@@ -55,7 +57,12 @@ def format_block(sub: ContactSubmission) -> str:
     return "\n".join(lines) + "\n"
 
 
-def append_to_s3(block: str) -> None:
+def slugify_name(name: str) -> str:
+    slug = re.sub(r"[^a-z0-9]+", "-", name.lower()).strip("-")
+    return slug or "unknown"
+
+
+def append_to_s3(block: str, key: str) -> None:
     import boto3
     from botocore.exceptions import ClientError
     client_kwargs = {"region_name": AWS_REGION}
@@ -67,7 +74,7 @@ def append_to_s3(block: str) -> None:
     s3 = boto3.client("s3", **client_kwargs)
     existing = ""
     try:
-        existing = s3.get_object(Bucket=S3_BUCKET, Key=S3_KEY)["Body"].read().decode("utf-8")
+        existing = s3.get_object(Bucket=S3_BUCKET, Key=key)["Body"].read().decode("utf-8")
         if existing and not existing.endswith("\n"):
             existing += "\n"
     except ClientError as e:
@@ -75,15 +82,15 @@ def append_to_s3(block: str) -> None:
             raise
     s3.put_object(
         Bucket=S3_BUCKET,
-        Key=S3_KEY,
+        Key=key,
         Body=(existing + block).encode("utf-8"),
         ContentType="text/plain",
     )
 
 
-def append_to_local(block: str) -> None:
-    LOCAL_FALLBACK.parent.mkdir(parents=True, exist_ok=True)
-    with open(LOCAL_FALLBACK, "a", encoding="utf-8") as f:
+def append_to_local(block: str, slug: str) -> None:
+    LOCAL_DIR.mkdir(parents=True, exist_ok=True)
+    with open(LOCAL_DIR / f"{slug}.txt", "a", encoding="utf-8") as f:
         f.write(block)
 
 
@@ -95,19 +102,26 @@ async def root():
 @api_router.post("/contact")
 def submit_contact(sub: ContactSubmission):
     block = format_block(sub)
+    slug = slugify_name(sub.name)
+    key = f"{S3_PREFIX}{slug}.txt"
     storage = "local"
     if s3_configured():
         try:
-            append_to_s3(block)
+            append_to_s3(block, key)
             storage = "s3"
         except Exception:
             logger.exception("S3 write failed; storing submission in local fallback file")
-            append_to_local(block)
+            append_to_local(block, slug)
             storage = "local-fallback"
     else:
         logger.warning("S3 bucket/region not configured; storing submission in local fallback file")
-        append_to_local(block)
-    return {"ok": True, "message": "Got it — I'll get back to you within 1–2 days!", "storage": storage}
+        append_to_local(block, slug)
+    return {
+        "ok": True,
+        "message": "Got it — I'll get back to you within 1–2 days!",
+        "storage": storage,
+        "file": key if storage == "s3" else f"{slug}.txt",
+    }
 
 
 app.include_router(api_router)
