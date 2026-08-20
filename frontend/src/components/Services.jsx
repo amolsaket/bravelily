@@ -1,4 +1,4 @@
-import { ArrowUpRight, TrendingUp, Compass, Users, Layers } from "lucide-react";
+import { ArrowUpRight, TrendingUp, Compass, Users, Layers, Target, LineChart } from "lucide-react";
 import { Sparkle } from "@/components/Doodles";
 import { Reveal, SectionHead, GhostNumber } from "@/components/Reveal";
 
@@ -16,6 +16,8 @@ const DATA_ML = [
   { name: "Next Best Product", desc: "Recommendations that know what your customer wants next — before they do.", Icon: Compass },
   { name: "Customer Segmentation", desc: "Your customers, sorted by how they actually behave — so every offer feels personal.", Icon: Users },
   { name: "Product Affinity Modeling", desc: "See which products naturally belong together. Smarter bundles, smarter shelves.", Icon: Layers },
+  { name: "Uplift Modelling", desc: "Know who'll buy because you nudged them — and who would've bought anyway. Spend only where it moves the needle.", Icon: Target },
+  { name: "Demand Forecasting", desc: "Time-series models that predict what you'll sell next month — so you stock just right, never too much.", Icon: LineChart },
 ];
 
 export default function Services() {

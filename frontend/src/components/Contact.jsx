@@ -27,6 +27,8 @@ const SERVICES = [
   "Next Best Product",
   "Customer Segmentation",
   "Product Affinity Modeling",
+  "Uplift Modelling",
+  "Demand Forecasting (Time Series)",
   "Not sure yet",
 ];
 

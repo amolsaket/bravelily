@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowDown } from "lucide-react";
-import { Sparkle, CurlyArrow } from "@/components/Doodles";
+import { Sparkle, CurlyArrow, Lily } from "@/components/Doodles";
 import { scrollToId } from "@/lib/lenis";
 
 const EASE = [0.16, 1, 0.3, 1];
@@ -44,11 +44,9 @@ export default function Hero() {
         style={{ y: ySlow }}
         className="absolute -top-10 right-[8%] h-72 w-72 rounded-full bg-blush opacity-60 blur-3xl md:h-96 md:w-96"
       />
-      <motion.div
-        aria-hidden
-        style={{ y: yFast }}
-        className="absolute bottom-10 left-[42%] hidden h-40 w-40 rounded-t-full border border-blushHover lg:block"
-      />
+      <motion.div aria-hidden style={{ y: yFast }} className="absolute bottom-8 left-[40%] hidden lg:block">
+        <Lily className="h-44 w-28 text-blushHover" />
+      </motion.div>
 
       <div className="relative z-10 lg:col-span-8">
         <motion.p

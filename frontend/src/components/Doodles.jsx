@@ -21,3 +21,17 @@ export const CurlyArrow = ({ className = "" }) => (
     />
   </svg>
 );
+
+export const Lily = ({ className = "" }) => (
+  <svg viewBox="0 0 120 200" fill="none" className={className} aria-hidden>
+    <path d="M60 196 C 57 158, 63 128, 60 92" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <path d="M60 152 C 42 148, 27 134, 23 112 C 42 117, 56 132, 60 152 Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M60 122 C 77 118, 91 105, 95 85 C 77 90, 64 104, 60 122 Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M60 90 C 52 68, 52 42, 60 18 C 68 42, 68 68, 60 90 Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M60 90 C 44 74, 38 52, 44 30 C 56 46, 60 68, 60 90 Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M60 90 C 76 74, 82 52, 76 30 C 64 46, 60 68, 60 90 Z" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
+    <path d="M60 86 L 53 58 M60 86 L 67 58" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" />
+    <circle cx="52.5" cy="55" r="1.8" fill="currentColor" />
+    <circle cx="67.5" cy="55" r="1.8" fill="currentColor" />
+  </svg>
+);

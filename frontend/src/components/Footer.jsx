@@ -1,4 +1,5 @@
 import { Linkedin, Mail } from "lucide-react";
+import { Lily } from "@/components/Doodles";
 import { scrollToId } from "@/lib/lenis";
 
 export default function Footer() {
@@ -6,7 +7,10 @@ export default function Footer() {
     <footer data-testid="footer" className="border-t border-line bg-cream py-16">
       <div className="mx-auto flex max-w-7xl flex-col gap-10 px-6 md:flex-row md:items-end md:justify-between">
         <div>
-          <p className="font-display text-4xl font-semibold italic tracking-tight md:text-5xl">BravelilyStudios</p>
+          <span className="flex items-end gap-4">
+            <Lily className="h-16 w-10 shrink-0 text-blushHover" />
+            <p className="font-display text-4xl font-semibold italic tracking-tight md:text-5xl">BravelilyStudios</p>
+          </span>
           <p className="mt-3 max-w-sm text-sm leading-relaxed text-inkSoft">
             Brand, marketing &amp; data consulting for fashion and lifestyle brands. Bengaluru, India.
           </p>
